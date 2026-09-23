@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulipán 🌷</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffeaf2;
+            overflow: hidden;
+        }
+
+        /* TULIPÁN */
+        .tulipan {
+            position: relative;
+            width: 180px;
+            height: 350px;
+
+            animation: girarLados 2.5s ease-in-out infinite;
+            transform-origin: center;
+            transform-style: preserve-3d;
+        }
+
+        /* FLOR */
+        .flor {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 120px;
+            height: 120px;
+
+            filter: drop-shadow(0 0 8px rgba(255, 120, 170, 0.5));
+        }
+
+        /* PÉTALOS */
+        .petalo {
+            position: absolute;
+            width: 70px;
+            height: 105px;
+
+            background: linear-gradient(
+                135deg,
+                #ff9fbd,
+                #ff4f81 55%,
+                #c92f62
+            );
+
+            border-radius: 55% 55% 45% 45%;
+
+            box-shadow:
+                inset 8px 0 12px rgba(255, 255, 255, 0.35),
+                0 5px 12px rgba(160, 30, 75, 0.25);
+        }
+
+        .petalo1 {
+            left: 0;
+            transform: rotate(-20deg);
+        }
+
+        .petalo2 {
+            left: 25px;
+            z-index: 2;
+        }
+
+        .petalo3 {
+            left: 50px;
+            transform: rotate(20deg);
+        }
+
+        /* TALLO */
+        .tallo {
+            position: absolute;
+            top: 115px;
+            left: 82px;
+            width: 16px;
+            height: 200px;
+
+            background: linear-gradient(
+                to right,
+                #276d35,
+                #3fa34d,
+                #276d35
+            );
+
+            border-radius: 20px;
+        }
+
+        /* HOJAS */
+        .hoja {
+            position: absolute;
+            width: 80px;
+            height: 35px;
+
+            background: linear-gradient(
+                135deg,
+                #52b95d,
+                #287d36
+            );
+
+            border-radius: 100% 0 100% 0;
+        }
+
+        .hoja1 {
+            top: 190px;
+            left: 20px;
+            transform: rotate(-30deg);
+        }
+
+        .hoja2 {
+            top: 230px;
+            left: 85px;
+            transform: rotate(30deg) scaleX(-1);
+        }
+
+        /* BRILLO DEBAJO DEL TULIPÁN */
+        .tulipan::after {
+            content: "";
+            position: absolute;
+
+            bottom: 15px;
+            left: 50%;
+
+            width: 130px;
+            height: 25px;
+
+            transform: translateX(-50%);
+
+            background: rgba(255, 120, 170, 0.25);
+
+            border-radius: 50%;
+            filter: blur(10px);
+        }
+
+        /* CORAZONES */
+        .corazones {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            pointer-events: none;
+        }
+
+        .corazones span {
+            position: absolute;
+
+            color: #ff6f9f;
+            font-size: 20px;
+
+            text-shadow:
+                0 0 6px rgba(255, 100, 160, 0.6),
+                0 0 12px rgba(255, 150, 190, 0.4);
+
+            animation: flotar 3s ease-in-out infinite;
+        }
+
+        .corazones span:nth-child(1) {
+            left: 20px;
+            top: 80px;
+            animation-delay: 0s;
+        }
+
+        .corazones span:nth-child(2) {
+            right: 25px;
+            top: 150px;
+            animation-delay: 1s;
+        }
+
+        .corazones span:nth-child(3) {
+            left: 50px;
+            bottom: 50px;
+            animation-delay: 2s;
+        }
+
+        /* ANIMACIÓN DEL TULIPÁN */
+        @keyframes girarLados {
+
+            0% {
+                transform: perspective(600px) rotateY(-45deg);
+            }
+
+            50% {
+                transform: perspective(600px) rotateY(45deg);
+            }
+
+            100% {
+                transform: perspective(600px) rotateY(-45deg);
+            }
+        }
+
+        /* ANIMACIÓN DE LOS CORAZONES */
+        @keyframes flotar {
+
+            0% {
+                transform: translateY(10px) scale(0.8);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateY(-15px) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(10px) scale(0.8);
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tulipan">
+
+        <div class="flor">
+            <div class="petalo petalo1"></div>
+            <div class="petalo petalo2"></div>
+            <div class="petalo petalo3"></div>
+        </div>
+
+        <div class="tallo"></div>
+
+        <div class="hoja hoja1"></div>
+        <div class="hoja hoja2"></div>
+
+    </div>
+
+    <div class="corazones">
+        <span>♥</span>
+        <span>♥</span>
+        <span>♥</span>
+    </div>
+
+</body>
+
+</html>
